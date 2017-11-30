@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>图书管理系统</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body>
+    <div class="title">图书管理系统<a href="javascript:void(0)" id="add">添加图书</a></div>
+    <div class="content">
+        <!-- 遮罩层的html部分 -->
+        <form id="form" class="formclass">
+            <input type="hidden" name="id"> 名称：
+            <input type="text" name="name"><br> 作者：
+            <input type="text" name="author"><br> 分类：
+            <input type="text" name="category"><br> 描述：
+            <input type="text" name="description"><br>
+            <input type="button" value="提交">
+        </form>
+
+        <table cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>名称</th>
+                    <th>作者</th>
+                    <th>分类</th>
+                    <th>描述</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
+    </div>
+</body>
+<script src="./js/jquery.js"></script>
+<script src="./js/index.js"></script>
+<script src="./js/template-web.js"></script>
+<script src="./js/dialog.js"></script>
+<!-- 刚进入列表数据的渲染模板 -->
+<script type="text/template" id="tbodytpl">
+    {{each list}}
+    <tr>
+        <td>{{$value.id}}</td>
+        <td>{{$value.name}}</td>
+        <td>{{$value.author}}</td>
+        <td>{{$value.category}}</td>
+        <td>{{$value.description}}</td>
+        <td><a href="javascript:void(0)">修改</a>|<a href="/deletebook?id={{$value.id}}">删除</a></td>
+    </tr>
+    {{/each}}
+</script>
+
+</html>
