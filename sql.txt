@@ -1,0 +1,7 @@
+SELECT a.name, a.age, b.genderVal
+FROM demolist_tzw a
+left JOIN demolist_gender_tzw b
+ON a.gender=b.genderKey
+order BY a.id
+
+
